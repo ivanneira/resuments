@@ -1,0 +1,466 @@
+<div class="container container-fluid">
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <br>
+            <h4>Resumen estadístico mensual de trabajo social</h4>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <br>
+            <span class="form-inline">
+                <button id="salir" class="btn btn-danger btn-sm">Cerrar sesión de usuario</button>
+            </span>
+        </div>
+    </div>
+
+
+    <br>
+    <!--
+
+    <div class="row marco ">
+
+
+        <table class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th>Zona</th>
+                <th>Establecimiento</th>
+            </tr>
+            <tr>
+                <td>
+                    <select class="selectdd select2departamento form-control">
+                        <option value="-1">Seleccione zona sanitaria</option>
+                        <option value="1">Zona I</option>
+                        <option value="2">Zona II</option>
+                        <option value="3">Zona III</option>
+                        <option value="4">Zona IV</option>
+                        <option value="5">Zona V</option>
+                        <option value="0">Otra</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="selectCS"> </select>
+
+                </td>
+            </tr>
+            <tr>
+                <th>Departamento</th>
+                <th>Fecha</th>
+            </tr>
+            <tr>
+                <td>
+                    <select class="selectDepartamento"></select>
+                </td>
+                <td>
+                    <div id="date" class="input-group date">
+                        <buttton id="btnfecha" class="btn btn-danger btn-block">Seleccione Fecha</buttton>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+-->
+
+    <div class="row marco pag1">
+
+
+        <table class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th>Establecimiento</th>
+                <th>Fecha</th>
+            </tr>
+            <tr>
+                <td>
+                    <select class="selectCS"> </select>
+                </td>
+                <td>
+                    <div id="date" class="input-group date">
+                        <buttton id="btnfecha" class="btn btn-danger btn-block">Seleccione Fecha</buttton>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <br class="pag1">
+
+    <div class="row marco pag1">
+
+        <table id="procedencia" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th colspan="6">Lugar de procedencia<br></th>
+            </tr>
+            <tr>
+                <td>Albardón</td>
+                <td><input data-id="414" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Iglesia</td>
+                <td><input data-id="420" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Sarmiento</td>
+                <td><input data-id="427" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Angaco</td>
+                <td><input data-id="415" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>9 de Julio</td>
+                <td><input data-id="413" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Ullum</td>
+                <td><input data-id="428" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Calingasta</td>
+                <td><input data-id="416" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Pocito</td>
+                <td><input data-id="422" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Valle Fértil</td>
+                <td><input data-id="429" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Capital</td>
+                <td><input data-id="417" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Rawson</td>
+                <td><input data-id="423" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>25 de mayo</td>
+                <td><input data-id="412" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Caucete</td>
+                <td><input data-id="418" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Rivadavia</td>
+                <td><input data-id="424" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Zonda</td>
+                <td><input data-id="430" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Chimbas</td>
+                <td><input data-id="419" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>San Martín</td>
+                <td><input data-id="425" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Otros</td>
+                <td><input data-id="otros" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Santa Lucía</td>
+                <td><input data-id="426" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>Jáchal</td>
+                <td><input data-id="421" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td>TOTAL</td>
+                <td><input data-id="total" name="Lugar de procedencia" id="totalProcedencia" class="inputs-suma" type="number" min="0" step="1" value="0"></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <br class="pag1">
+    <br class="pag1">
+
+    <div class="row marco pag1">
+
+        <table id="demanda" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th colspan="2">Origen de la demanda</th>
+            </tr>
+            <tr>
+                <td>Espontánea</td>
+                <td><input data-name="espontanea" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Captación oportuna</td>
+                <td><input data-name="oportuna" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Interconsulta</td>
+                <td><input data-name="interconsulta" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Derivación</td>
+                <td><input data-name="derivacion" class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td><input data-name="total" name="Origen de la demanda" id="totalOrigen" class="inputs-suma" type="number" min="0" step="1" value="0"></td>
+            </tr>
+        </table>
+    </div>
+
+    <br class="pag1">
+
+    <div class="row marco pag1">
+
+        <table id="descendientes" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th colspan="6">Descendientes de pueblos originarios</th>
+            </tr>
+            <tr>
+                <td>Huarpes</td>
+                <td>Diaguitas</td>
+                <td>No corresponde</td>
+                <td>No sabe</td>
+                <td>Otros</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td><input data-name="huarpes" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="diaguitas" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="nocorresponde" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="nosabe" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="otros" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="total" name="Descendientes de pueblos originarios" id="totalDescendientes" class="inputs-suma" type="number" min="0" step="1" value="0"></td>
+            </tr>
+        </table>
+    </div>
+
+    <br class="pag1">
+
+    <div class="row marco pag1">
+
+        <table id="cobertura" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th colspan="5">Cobertura de salud</th>
+            </tr>
+            <tr>
+                <td>Obra social</td>
+                <td>Plan de salud privado o mutual</td>
+                <td>Plan o seguro</td>
+                <td>Ninguna</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td><input data-name="osocial" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="planprivado" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="plan" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="ninguna" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="total" name="Cobertura de salud" id="totalCobertura" class="inputs-suma" type="number" min="0" step="1" value="0"></td>
+            </tr>
+        </table>
+    </div>
+
+    <br class="pag1">
+
+    <div class="row marco pag1">
+
+        <table id="consulta" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th colspan="3">Tipos de consulta</th>
+            </tr>
+            <tr>
+                <td>1º vez</td>
+                <td>Ulterior</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td><input data-name="unavez" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="ulterior" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="total" name="Tipos de consulta" id="totalConsulta" class="inputs-suma" type="number" min="0" step="1" value="0"></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <br class="pag1">
+
+    <div class="row marco pag1">
+
+        <table id="genero" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th colspan="3">Género</th>
+            </tr>
+            <tr>
+                <td>Masculino</td>
+                <td>Femenino</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td><input data-name="masculino" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="femenino" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="total" name="Género" id="totalGenero" class="inputs-suma" type="number" min="0" step="1" value="0"></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <br class="pag1">
+
+    <div class="row marco pag1">
+
+        <table id="etareo" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th colspan="8">Grupos etáreos</th>
+            </tr>
+            <tr>
+                <td>&lt; de 1 año</td>
+                <td>1-4 años</td>
+                <td>5 a 14</td>
+                <td>15 a 19</td>
+                <td>20 a 39</td>
+                <td>40 a 69</td>
+                <td>70 y mas</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td><input data-name="g1" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="g14" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="g514" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="g1519" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="g2039" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="g4069" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="g70" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="total" name="Rango etáreo" id="totalEtareo" class="inputs-suma" type="number" min="0" step="1" value="0"></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <br>
+
+    <div class="row marco pag1">
+
+        <table id="atencion" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th colspan="3">Modalidad de atención</th>
+            </tr>
+            <tr>
+                <td>Ambulatoria</td>
+                <td>Internado</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td><input data-name="ambulatoria" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="internado" class="inputs" type="number" min="0" step="1" value="0"></td>
+                <td><input data-name="total" name="Modalidad de atención" id="totalAtencion" class="inputs-suma" type="number" min="0" step="1" value="0"></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <br>
+
+    <div class="row marco pag2">
+
+        <table id="practicas" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+            <tr>
+                <th colspan="2">Prácticas sociales</th>
+                <th>Cantidad</th>
+            </tr>
+            <tr>
+                <td rowspan="4">Entrevista social</td>
+                <td>Ambulatorio</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Internado</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Domicilio</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Ambiental/vecinal</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Monitoreo de sala</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Revista de sala</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Consejería/Asesoramiento</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Orientación/Información</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td rowspan="2">Gestión</td>
+                <td>Inta-institucional</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Extra-institucional</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td rowspan="2">Coordinación</td>
+                <td>Inta-institucional</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Extra-institucional</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Informe social</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Ficha social ABC</td>
+                <td><input class="inputs" type="number" min="0" step="1" value="0"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Total</td>
+                <td><input id="totalPracticas" class="inputs inputs-suma-sin-evento" type="number" min="0" step="1" value="0"></td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+
+    <div class="row marco pag2">
+        <button id="agregar" class="btn btn-success btn-sm"><span>+</span> Agregar motivo</button>
+        <!--<button id="data" class="btn btn-success btn-sm"><span>+</span> dasdfasdf afsd</button>-->
+
+        <table class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+
+            <tr>
+                <th>Motivos de intervención (CIE 10)</th>
+
+            </tr>
+
+        </table>
+
+        <table id="motivos" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+        </table>
+
+    </div>
+
+    <br class="pag2">
+
+    <div class="row marco pag2">
+
+        <button id="agregarActividades" class="btn btn-success btn-sm"><span>+</span> Agregar actividad</button>
+    <!--
+        <div class="row marco pag2" id="actividades">
+    -->
+        <table class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+
+            <tr>
+                <th>Actividades grupales o comunitarias</th>
+
+            </tr>
+
+        </table>
+
+        <table id="actividades" class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">
+
+        </table>
+
+    </div>
+
+    <br class="pag2">
+
+    <div class="row marco">
+
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"></div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <button id="guardar" class="btn btn-primary btn-block">Siguiente &raquo</button>
+        </div>
+    </div>
+
+
+    <br><br>
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!-- estilo de bootstrap -->
+    <link rel='stylesheet' href='css/bootstrap.min.css' />
+
+    <!-- estilo de bootstrap-select
+    <link rel='stylesheet' href='css/bootstrap-select.min.css' />-->
+
+    <!-- estilo de select2 -->
+    <link rel='stylesheet' href='css/select2.min.css' />
+
+    <!-- estilo de bootstrap-datepicker -->
+    <link rel='stylesheet' href='css/bootstrap-datepicker.min.css' />
+
+    <!-- jQuery -->
+    <script src="jquery.min.js"></script>
+
+
+
+  </head>
+  <body class="bg-light">
+    {{{body}}}
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- contenido dinámico -->
+                </div>
+                <div class="modal-footer">
+                    <button id="aceptar" type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                    <button id="cerrar" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button id="agregarActividad" type="button" class="btn btn-success" data-dismiss="modal" >Agregar</button>
+                    <button id="agregarMotivo" type="button" class="btn btn-success" data-dismiss="modal" >Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+
+  <!-- popper js
+  <script src="umd/popper.min.js"></script>-->
+
+  <!-- bootstrap-select js
+<script src="js/bootstrap-select.min.js"></script>-->
+
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- select2 js -->
+  <script src="js/select2.full.min.js"></script>
+
+  <!-- bootstrap-datepicker js -->
+  <script src="js/bootstrap-datepicker.min.js"></script>
+
+  <!-- user js -->
+  <script src="javascripts/user.js"></script>
+
+</html>

@@ -1,0 +1,67 @@
+<div class="row">
+
+    <div class="col-xs-1 col-sm-2 col-md-4 col-lg-4"></div>
+    <div class="col-xs-10 col-sm-8 col-md-4 col-lg-4">
+
+        <div class="loginform">
+            <form class="form-signin">
+                <h4 class="form-signin-heading">Prestaciones mensuales</h4>
+                <label for="inputEmail" class="sr-only">Usuario</label>
+                <input type="text" id="user" class="form-control" placeholder="Usuario" required="" autofocus="">
+                <label for="inputPassword" class="sr-only">Contraseña</label>
+                <input type="password" id="pass" class="form-control" placeholder="Contraseña" required="">
+
+            </form>
+            <button class="btn btn-lg btn-primary btn-block submit">Ingresar</button>
+        </div>
+
+    </div>
+    <div class="col-xs-1 col-sm-2 col-md-4 col-lg-4"></div>
+</div>
+
+<div class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Usuario o contraseña incorrecta!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .loginform {
+
+        max-width: 400px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        padding: 3em;
+    }
+
+</style>
+
+<script>
+
+$(".submit").click(function(){
+
+    $.post('/trylogin', { user: $("#user").val(), pass: $("#pass").val()}, function(data){
+        if(!data){
+
+            $(".modal").modal('show');
+        }else{
+
+            window.location.replace('/');
+        }
+    });
+});
+
+
+</script>
