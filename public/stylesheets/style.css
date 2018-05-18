@@ -74,3 +74,7 @@ input[type=checkbox]
 
     background-color: #feeffe !important;
 }
+
+#actividades {
+    display: contents !important;
+ }

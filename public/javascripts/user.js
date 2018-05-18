@@ -188,6 +188,8 @@ var prestacionesID = 0;
 
 var actividadesID = 0;
 
+var flagPatologia = false;
+
 
 $(function(){
 
@@ -357,7 +359,10 @@ $(function(){
 
     //boton que levanta el modal para agregar un nuevo motivo
     $("#agregar").click(function(){
+
+
         agregarMotivo();
+
     });
 
     //boton que levanta el modal para completar una actividad a guardar
@@ -370,7 +375,43 @@ $(function(){
     $("#agregarMotivo")
         .on('click',function(){
 
-            appendRow($(".selectMotivoP"),$(".selectMotivoS"));
+            var mensajes = [];
+
+            if(!$(".selectMotivoP").prop('disabled')){
+
+                if($(".selectMotivoP").val() === null){
+                    mensajes.push("Debe elegir un motivo o marcar la casilla Sin patología.");
+                }
+            }
+
+
+            if(typeof($(".selectMotivoS").select2('data')[0]) === 'undefined'){
+                mensajes.push("Debe buscar al menos un aspecto psicosocial");
+            }
+
+            if($("#cantidadMotivo").val() < 1){
+                mensajes.push("Debe ingresar una cantidad válida y distinta de cero");
+            }
+
+            if(mensajes.length > 0){
+
+                var mensaje = "";
+
+                for(var index in mensajes){
+
+                    mensaje += mensajes[index] + "\n";
+                }
+
+                alert(mensaje);
+
+                event.stopPropagation();
+
+            }else{
+
+                appendRow($(".selectMotivoP"),$(".selectMotivoS"));
+            }
+
+
         })
         .show();
 
@@ -393,6 +434,8 @@ function appendActividad(tematicaid){
 
     var htmlString =
 
+        '<table class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">' +
+        '<tbody>' +
         '<tr>'+
         '   <th>'+ tematicas[tematicaid].text +'</th>'+
         '   <th colspan="5"><select class="selectCIE10"> </th>'+
@@ -442,7 +485,9 @@ function appendActividad(tematicaid){
         '</tr>' +
         '<tr>' +
         '   <td colspan="6"><button class="quitaractividad btn btn-block btn-danger" data-id="'+ tematicaid +'">Quitar actividad: "' + tematicas[tematicaid].text  +'" </button></td>' +
-        '</tr>';
+        '</tr>' +
+        '</tbody>' +
+        '</table>';
 
     $("#actividades").append(htmlString);
 
@@ -1034,6 +1079,7 @@ var htmlString =
 //agrega nuevos motivos de intervención
 function agregarMotivo(){
 
+
     var htmlString =
         '<h6>Código de patología / enfermedad</h6>' +
         '<div class="row">' +
@@ -1090,6 +1136,7 @@ function agregarMotivo(){
 
     $("#sinPatologia").click(function(){
 
+
         if($(this).prop('checked')){
 
             $(".selectMotivoP").prop('disabled',true);
@@ -1145,6 +1192,8 @@ function appendRow(selectorP,selectorS){
     var motivo;
 
     if($("#sinPatologia").prop('checked')){
+
+        //flagPatologia = true;
 
         motivo = {
             cie10: '0',
@@ -1507,3 +1556,4 @@ function suma(arr){
     return acum;
 }
     */
+
