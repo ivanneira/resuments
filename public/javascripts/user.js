@@ -566,6 +566,7 @@ function appendActividad(tematicaid){
 
                 var htmlString =
 
+                    '<table class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">' +
                     '<tr>'+
                     '   <th>'+ tematicas[index].text +'</th>'+
                     '   <th colspan="5"><select class="selectCIE10"> </th>'+
@@ -615,7 +616,8 @@ function appendActividad(tematicaid){
                     '</tr>' +
                     '<tr>' +
                     '   <td colspan="6"><button class="quitaractividad btn btn-block btn-danger" data-id="'+ index +'">Quitar actividad: "' + tematicas[index].text  +'" </button></td>' +
-                    '</tr>';
+                    '</tr>' +
+                    '</table>';
 
                 $("#actividades")
                     .append(htmlString);
