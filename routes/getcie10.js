@@ -4,7 +4,7 @@ var router = express.Router();
 var knex = require('knex')({
     client: 'mssql',
     connection: {
-        host : '200.0.236.210',
+        host : '10.64.65.200',
         port: 5000,
         user : 'sa',
         password : 'Alamitos+2016',

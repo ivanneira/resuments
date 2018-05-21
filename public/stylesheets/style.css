@@ -1,4 +1,6 @@
-
+table, input, tr, th, td {
+    border: solid darkgray 1px !important;
+}
 
 .marco {
     background-color: #feeffe;
