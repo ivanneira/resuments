@@ -1247,15 +1247,17 @@ function appendRow(selectorP,selectorS){
     $("#motivos")
         .empty();
 
+    var htmlString =
+        '<tr>' +
+        '   <th>Patología</th>' +
+        '   <th>Cantidad</th>' +
+        '   <th>Aspectos sociales</th>' +
+        '   <th>Acción</th>' +
+        '</tr>';
+
     for(var index in DATA.motivos){
 
         var htmlString =
-            '<tr>' +
-            '<th>Patología</th>' +
-            '<th>Cantidad</th>' +
-            '<th>Aspectos sociales</th>' +
-            '<th>Acción</th>' +
-            '</tr>' +
             '<tr>' +
             '<td>' + DATA.motivos[index].nombre + '</td>' +
             '<td>' + DATA.motivos[index].cantidad + '</td>' +
