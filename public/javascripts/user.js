@@ -1274,9 +1274,10 @@ function appendRow(selectorP,selectorS){
             '<td><button class="btn btn-danger btn-sm quitarmotivo" data-id="' + DATA.motivos[index].id + '">quitar</button></td>' +
             '</tr>';
 
-        $("#motivos")
-            .append(htmlString);
     }
+
+    $("#motivos")
+        .append(htmlString);
 
     //evento de boton quitar de filas de motivos de intervención
     $(".quitarmotivo")
