@@ -1313,9 +1313,17 @@ function updateMotivosRows(){
     $("#motivos")
         .empty();
 
+    var htmlString =
+        '<tr>' +
+        '   <th>Patología</th>' +
+        '   <th>Cantidad</th>' +
+        '   <th>Aspectos sociales</th>' +
+        '   <th>Acción</th>' +
+        '</tr>';
+
     for(var index in DATA.motivos){
 
-        var htmlString =
+        htmlString +=
             '<tr>' +
             '<td>' + DATA.motivos[index].nombre + '</td>' +
             '<td>' + DATA.motivos[index].cantidad + '</td>' +
