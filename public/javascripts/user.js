@@ -238,9 +238,19 @@ $(function(){
             }
         });
 
-        if(DATA.motivos.length < referencia){
+        var cantidadDeMotivos =0;
+
+        for(var index in DATA.motivos){
+
+            cantidadDeMotivos += parseInt( DATA.motivos[index].cantidad );
+        }
+
+        console.log(cantidadDeMotivos);
+
+        if(cantidadDeMotivos < referencia){
             errorFlag = true;
             message.push("motivos");
+
             //console.log("hay menos motivos")
         }
 
