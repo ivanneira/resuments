@@ -1205,7 +1205,7 @@ function appendRow(selectorP,selectorS){
 
     if($("#sinPatologia").prop('checked')){
 
-        //flagPatologia = true;
+        flagPatologia = true;
 
         motivo = {
             cie10: '0',
@@ -1281,6 +1281,11 @@ function appendRow(selectorP,selectorS){
             for(var index in DATA.motivos){
 
                 if(DATA.motivos[index].id == $(this).data('id') ){
+
+                    if((DATA.motivos[index].cie10 == 0){
+
+                        flagPatologia = false;
+                    }
 
                     DATA.motivos.splice(index, 1);
 
