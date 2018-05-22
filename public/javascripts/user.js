@@ -403,6 +403,10 @@ $(function(){
                 mensajes.push("Debe ingresar una cantidad válida y distinta de cero");
             }
 
+            if(flagPatologia === true && $("#sinPatologia").prop('checked') === true){
+                mensajes.push("Ya agregó el motivo \"Sin patología\".");
+            }
+
             if(mensajes.length > 0){
 
                 var mensaje = "";
