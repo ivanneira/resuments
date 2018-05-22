@@ -1257,7 +1257,7 @@ function appendRow(selectorP,selectorS){
 
     for(var index in DATA.motivos){
 
-        htmlString =
+        htmlString +=
             '<tr>' +
             '<td>' + DATA.motivos[index].nombre + '</td>' +
             '<td>' + DATA.motivos[index].cantidad + '</td>' +
