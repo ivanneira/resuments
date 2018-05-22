@@ -1093,7 +1093,7 @@ function agregarMotivo(){
         '       <input id="sinPatologia" type="checkbox" value="0">' +
         '   </div>' +
         '</div>' +
-        '<h6>Códigos de aspetos psicosociales</h6>' +
+        '<h6>Códigos de aspectos sociales</h6>' +
         '<select class="selectMotivoS"> </select>' +
         '<br><br>' +
         '<h6>Cantidad</h6>' +
@@ -1236,6 +1236,12 @@ function appendRow(selectorP,selectorS){
     for(var index in DATA.motivos){
 
         var htmlString =
+            '<tr>' +
+            '<th>Patología</th>' +
+            '<th>Cantidad</th>' +
+            '<th>Aspectos sociales</th>' +
+            '<th>Acción</th>' +
+            '</tr>' +
             '<tr>' +
             '<td>' + DATA.motivos[index].nombre + '</td>' +
             '<td>' + DATA.motivos[index].cantidad + '</td>' +
