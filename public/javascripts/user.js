@@ -1282,7 +1282,7 @@ function appendRow(selectorP,selectorS){
 
                 if(DATA.motivos[index].id == $(this).data('id') ){
 
-                    if((DATA.motivos[index].cie10 == 0){
+                    if(DATA.motivos[index].cie10 == 0){
 
                         flagPatologia = false;
                     }
