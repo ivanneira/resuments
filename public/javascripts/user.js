@@ -245,7 +245,7 @@ $(function(){
             cantidadDeMotivos += parseInt( DATA.motivos[index].cantidad );
         }
 
-        console.log(cantidadDeMotivos);
+        //console.log(cantidadDeMotivos);
 
         if(cantidadDeMotivos < referencia){
             errorFlag = true;
@@ -560,7 +560,6 @@ function appendActividad(tematicaid){
                 };
             }
         }
-
     });
 
 
@@ -690,16 +689,9 @@ function appendActividad(tematicaid){
                             };
                         }
                     }
-
                 });
-
-
-
-
             }
         }
-
-
     }
 /*
     var actividades = [];
@@ -1244,8 +1236,9 @@ function appendRow(selectorP,selectorS){
 
     DATA.motivos.push(motivo);
 
-    $("#motivos")
-        .empty();
+    var motivosContainer = $("#motivos");
+
+    motivosContainer.empty();
 
     var htmlString =
         '<tr>' +
@@ -1276,7 +1269,7 @@ function appendRow(selectorP,selectorS){
 
     }
 
-    $("#motivos")
+    motivosContainer
         .append(htmlString);
 
     //evento de boton quitar de filas de motivos de intervención
@@ -1304,15 +1297,19 @@ function appendRow(selectorP,selectorS){
 
 
     prestacionesID++;
-    //console.dir(DATA);
+    console.dir(DATA);
     //console.log(prestacionesID);
 }
 
 //agrega las filas de motivos según los datos guardados en el json
 function updateMotivosRows(){
 
-    $("#motivos")
-        .empty();
+    var motivosContainer = $("#motivos");
+
+    debugger
+
+    motivosContainer.empty();
+
 
     var htmlString =
         '<tr>' +
@@ -1326,8 +1323,8 @@ function updateMotivosRows(){
 
         htmlString +=
             '<tr>' +
-            '<td>' + DATA.motivos[index].nombre + '</td>' +
-            '<td>' + DATA.motivos[index].cantidad + '</td>' +
+            '   <td>' + DATA.motivos[index].nombre + '</td>' +
+            '   <td>' + DATA.motivos[index].cantidad + '</td>' +
             '<td>';
 
         for(var index2 in DATA.motivos[index].secundarios){
@@ -1340,28 +1337,33 @@ function updateMotivosRows(){
             '</td>' +
             '<td><button class="btn btn-danger btn-sm quitarmotivo" data-id="' + DATA.motivos[index].id + '">quitar</button></td>' +
             '</tr>';
-
-        $("#motivos")
-            .append(htmlString);
-
-        //evento de boton quitar de filas de motivos de intervención
-        $(".quitarmotivo")
-            .click(function(){
-
-                //console.log($(this).data('id'))
-
-                for(var index in DATA.motivos){
-
-                    if(DATA.motivos[index].id == $(this).data('id') ){
-
-                        DATA.motivos.splice(index, 1);
-
-                    }
-                }
-
-                updateMotivosRows();
-            });
     }
+
+    motivosContainer
+        .append(htmlString);
+
+    //evento de boton quitar de filas de motivos de intervención
+    $(".quitarmotivo")
+        .click(function(){
+
+            //console.log($(this).data('id'))
+
+            for(var index in DATA.motivos){
+
+                if(DATA.motivos[index].id == $(this).data('id') ){
+
+                    if(DATA.motivos[index].cie10 == 0){
+
+                        flagPatologia = false;
+                    }
+
+                    DATA.motivos.splice(index, 1);
+
+                }
+            }
+
+            updateMotivosRows();
+        });
 }
 
 
