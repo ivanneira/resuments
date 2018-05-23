@@ -65,7 +65,7 @@ var tematicas =
             text: 'otros',
             id: 8,
             selected: false
-        },
+        }
     ];
 
 const tipoDeTematica =
@@ -186,18 +186,15 @@ const programas =
 
 var prestacionesID = 0;
 
-var actividadesID = 0;
+//var actividadesID = 0;
 
 var flagPatologia = false;
-
 
 $(function(){
 
     $("input[type='number']").click(function () {
         $(this).select();
     });
-    //esconde la segunda página
-    //$(".pag2").hide();
 
     /*Procendencias*/
     sumaDeInputs($("#procedencia :input"),$("#totalProcedencia"));
@@ -217,7 +214,6 @@ $(function(){
     sumaDeInputs($("#atencion :input"),$("#totalAtencion"));
     /*Prácticas sociales*/
     sumaDeInputs($("#practicas :input"),$("#totalPracticas"));
-
 
     //evento del botón de guardado
     $("#guardar").click(function(){
@@ -250,8 +246,6 @@ $(function(){
         if(cantidadDeMotivos < referencia){
             errorFlag = true;
             message.push("motivos");
-
-            //console.log("hay menos motivos")
         }
 
         if(errorFlag) message.push("totales");
@@ -279,7 +273,6 @@ $(function(){
             '<br>' +
             '<input class="form-control" type="password" placeholder="contraseña">';
 
-
         $("#modalTitle").text("Ingrese su usuario y contraseña");
         $("#modalBody")
             .empty()
@@ -306,7 +299,6 @@ $(function(){
     $(".select2zona").select2({
         width: '100%',
         minimumResultsForSearch: Infinity
-
     });
 
     //selector de departamento (no necesario)
@@ -321,8 +313,6 @@ $(function(){
                 var query = {
                     q: params.term
                 };
-
-                // Query parameters will be ?1=[term]
                 return query;
             },
             processResults: function (data) {
@@ -350,8 +340,6 @@ $(function(){
                 var query = {
                     q: params.term
                 };
-
-                // Query parameters will be ?1=[term]
                 return query;
             },
             processResults: function (data) {
@@ -370,9 +358,7 @@ $(function(){
     //boton que levanta el modal para agregar un nuevo motivo
     $("#agregar").click(function(){
 
-
         agregarMotivo();
-
     });
 
     //boton que levanta el modal para completar una actividad a guardar
@@ -386,6 +372,14 @@ $(function(){
         .on('click',function(){
 
             var mensajes = [];
+
+            $('.selectMotivoS').each(function(index,element){
+                $(element)
+                    .find($('option:selected'))
+                    .each(function(index2,element2){
+                        if(!$(element2).val()) mensajes = "Debe elegir algún código de aspecto social";
+                    });
+            });
 
             if(!$(".selectMotivoP").prop('disabled')){
 
@@ -419,13 +413,10 @@ $(function(){
                 alert(mensaje);
 
                 event.stopPropagation();
-
             }else{
 
                 appendRow($(".selectMotivoP"),$(".selectMotivoS"));
             }
-
-
         })
         .show();
 
@@ -439,86 +430,81 @@ $(function(){
     */
 });
 
-//TODO: ESTO ES LO QUE HAY QUE SEGUIR CAMBIANDO
 //funcion para agregar y guardar una actividad completada
-function appendActividad(tematicaid){
+function appendActividad(tematicaid) {
 
-    //console.log(tematicaid)
     tematicas[tematicaid].selected = true;
 
     var htmlString =
 
         '<table class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">' +
         '<tbody>' +
-        '<tr>'+
-        '   <th>'+ tematicas[tematicaid].text +'</th>'+
-        '   <th colspan="5"><select class="selectCIE10"> </th>'+
-        '</tr>'+
-        '<tr>'+
+        '<tr>' +
+        '   <th>' + tematicas[tematicaid].text + '</th>' +
+        '   <th colspan="5"><select class="selectCIE10"> </th>' +
+        '</tr>' +
+        '<tr>' +
         '   <td>Reunión zonal</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
         '   <td>Reunión de ref. zonales</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
         '   <td>Reunión con equipos de salud</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
-        '</tr>'+
-        '   <tr>'+
+        '</tr>' +
+        '   <tr>' +
         '   <td>Coord. actores comu./inst.</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
         '   <td>Difusión de actividad</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
-            '<td>Taller</td>' +
+        '<td>Taller</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
-        '</tr>'+
-        '<tr>'+
+        '</tr>' +
+        '<tr>' +
         '   <td>Charla/Exposición</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
         '   <td>Supervisión</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
         '   <td>Tutoría</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
-        '</tr>'+
-        '<tr>'+
+        '</tr>' +
+        '<tr>' +
         '   <td>Ateneo</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
         '   <td>Part. jorn/conc/cong</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
         '   <td>Act. relacionada con invest.</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
-        '</tr>'+
-        '<tr>'+
+        '</tr>' +
+        '<tr>' +
         '   <td>Otras</td>' +
         '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
         '   <td></td>' +
         '   <td></td>' +
         '   <td></td>' +
         '   <td></td>' +
-        '</tr>'+
-        '<tr>'+
+        '</tr>' +
+        '<tr>' +
         '   <td colspan="6"><select class="selectprogramas"></td>' +
         '</tr>' +
         '<tr>' +
-        '   <td colspan="6"><button class="quitaractividad btn btn-block btn-danger" data-id="'+ tematicaid +'">Quitar actividad: "' + tematicas[tematicaid].text  +'" </button></td>' +
+        '   <td colspan="6"><button class="quitaractividad btn btn-block btn-danger" data-id="' + tematicaid + '">Quitar actividad: "' + tematicas[tematicaid].text + '" </button></td>' +
         '</tr>' +
         '</tbody>' +
         '</table>';
 
     $("#actividades").append(htmlString);
 
+    $(".quitaractividad").click(function () {
 
-    $(".quitaractividad").click(function(){
+        for (var index in tematicas) {
 
-        for(var index in tematicas){
-
-            if(tematicas[index].id == $(this).data('id')) {
+            if (tematicas[index].id == $(this).data('id')) {
 
                 tematicas[index].selected = false;
-                //console.log(tematicas[index].selected)
             }
         }
 
         updateActividades();
-
     });
 
     $("input[type='number']").click(function () {
@@ -553,7 +539,7 @@ function appendActividad(tematicaid){
                 return {
                     results: $.map(data, function (item) {
                         return {
-                            text: item.id10 + " - " +item.dec10,
+                            text: item.id10 + " - " + item.dec10,
                             id: item.id10
                         }
                     })
@@ -563,91 +549,83 @@ function appendActividad(tematicaid){
     });
 
 
-    function updateActividades(){
-
-        //console.log(tematicas)
-
+    function updateActividades() {
         $("#actividades")
             .empty();
 
-
-        for(var index in tematicas){
+        for (var index in tematicas) {
             //console.log(tematicas[index])
-            if(tematicas[index].selected){
-
-
+            if (tematicas[index].selected) {
 
                 var htmlString =
 
                     '<table class="table table-bordered table-sm table-responsive-sm table-responsive-md table-responsive-lg">' +
-                    '<tr>'+
-                    '   <th>'+ tematicas[index].text +'</th>'+
-                    '   <th colspan="5"><select class="selectCIE10"> </th>'+
-                    '</tr>'+
-                    '<tr>'+
+                    '<tr>' +
+                    '   <th>' + tematicas[index].text + '</th>' +
+                    '   <th colspan="5"><select class="selectCIE10"> </th>' +
+                    '</tr>' +
+                    '<tr>' +
                     '   <td>Reunión zonal</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
                     '   <td>Reunión de ref. zonales</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
                     '   <td>Reunión con equipos de salud</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
-                    '</tr>'+
-                    '   <tr>'+
+                    '</tr>' +
+                    '   <tr>' +
                     '   <td>Coord. actores comu./inst.</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
                     '   <td>Difusión de actividad</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
                     '<td>Taller</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
-                    '</tr>'+
-                    '<tr>'+
+                    '</tr>' +
+                    '<tr>' +
                     '   <td>Charla/Exposición</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
                     '   <td>Supervisión</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
                     '   <td>Tutoría</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
-                    '</tr>'+
-                    '<tr>'+
+                    '</tr>' +
+                    '<tr>' +
                     '   <td>Ateneo</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
                     '   <td>Part. jorn/conc/cong</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
                     '   <td>Act. relacionada con invest.</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
-                    '</tr>'+
-                    '<tr>'+
+                    '</tr>' +
+                    '<tr>' +
                     '   <td>Otras</td>' +
                     '   <td><input id="" class="inputs" type="number" min="0" step="1" value="0"></td>' +
                     '   <td></td>' +
                     '   <td></td>' +
                     '   <td></td>' +
                     '   <td></td>' +
-                    '</tr>'+
-                    '<tr>'+
+                    '</tr>' +
+                    '<tr>' +
                     '   <td colspan="6"><select class="selectprogramas"></td>' +
                     '</tr>' +
                     '<tr>' +
-                    '   <td colspan="6"><button class="quitaractividad btn btn-block btn-danger" data-id="'+ index +'">Quitar actividad: "' + tematicas[index].text  +'" </button></td>' +
+                    '   <td colspan="6"><button class="quitaractividad btn btn-block btn-danger" data-id="' + index + '">Quitar actividad: "' + tematicas[index].text + '" </button></td>' +
                     '</tr>' +
                     '</table>';
 
                 $("#actividades")
                     .append(htmlString);
 
-                $(".quitaractividad").click(function(){
+                $(".quitaractividad").click(function () {
 
-                    for(var index2 in tematicas){
+                    for (var index2 in tematicas) {
 
-                        if(tematicas[index2].id == $(this).data('id')) {
+                        if (tematicas[index2].id == $(this).data('id')) {
 
                             tematicas[index2].selected = false;
-                            //console.log(tematicas[index2].selected)
                         }
                     }
 
                     updateActividades();
-
                 });
 
                 $("input[type='number']").click(function () {
@@ -682,7 +660,7 @@ function appendActividad(tematicaid){
                             return {
                                 results: $.map(data, function (item) {
                                     return {
-                                        text: item.id10 + " - " +item.dec10,
+                                        text: item.id10 + " - " + item.dec10,
                                         id: item.id10
                                     }
                                 })
@@ -693,6 +671,7 @@ function appendActividad(tematicaid){
             }
         }
     }
+}
 /*
     var actividades = [];
     var programasArray = [];
@@ -738,7 +717,7 @@ function appendActividad(tematicaid){
 
     updateActividades();
     */
-}
+
 /*
 function updateActividades(){
 
@@ -1011,25 +990,17 @@ function agregarActividad(){
 
         $(".tematica").click(function(){
 
-
             $(".modal").modal('hide');
 
             appendActividad($(this).data('id'));
-
         });
 
         $(".modal").modal('show');
-
         $("#cerrar").hide();
         $("#aceptar").hide();
         $("#agregarActividad").hide();
         $("#agregarMotivo").hide();
-
     }
-
-
-
-
 
 var htmlString =
     '<table>' +
@@ -1081,14 +1052,14 @@ var htmlString =
     '       <td colspan="6"></td>' +
     '   </tr>' +
     '</table>';
-
 }
 
 //agrega nuevos motivos de intervención
 function agregarMotivo(){
 
-
     var htmlString =
+        '<h6>Cantidad de consultas</h6>' +
+        '<input id="cantidadMotivo" class="inputs" type="number" min="0" step="1" value="0">' +
         '<h6>Código de patología / enfermedad</h6>' +
         '<div class="row">' +
         '   <div class="col-8">' +
@@ -1100,16 +1071,56 @@ function agregarMotivo(){
         '   </div>' +
         '</div>' +
         '<h6>Códigos de aspectos sociales</h6>' +
-        '<select class="selectMotivoS"> </select>' +
-        '<br><br>' +
-        '<h6>Cantidad</h6>' +
-        '<input id="cantidadMotivo" class="inputs" type="number" min="0" step="1" value="0">';
+        '<button id="agregarNuevoMotivo" class="btn btn-success">Agregar motivo</button>' +
+        '<div id="motivosSecundariosContainer"></div>';
 
     $("#modalTitle").text("Agregar nuevo motivo de intervención: ");
 
     $("#modalBody")
         .empty()
         .append(htmlString);
+
+    $("#agregarNuevoMotivo").click(function(){
+
+        var htmlMotivos =
+                '<div class="row motivosSecundarios">' +
+                '   <div class="col-6"><select class="selectMotivoS"> </select></div>' +
+                '   <div class="col-6"><input id="cantidadMotivoS" class="inputs" type="number" min="0" step="1" value="0"></div>'+
+                '</div>';
+
+        $("#motivosSecundariosContainer")
+            .append(htmlMotivos);
+
+        $("input[type='number']").click(function () {
+            $(this).select();
+        });
+
+        $(".selectMotivoS").select2({
+            width: '100%',
+            dropdownParent: $("#modal"),
+            ajax: {
+                url: 'getcie10',
+                type: 'GET',
+                dataType: 'json',
+                data: function (params) {
+                    var query = {
+                        q: params.term
+                    };
+                    return query;
+                },
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.id10 + " - " +item.dec10,
+                                id: item.id10
+                            }
+                        })
+                    };
+                }
+            }
+        });
+    });
 
     $(".selectMotivoP").select2({
         width: '100%',
@@ -1124,8 +1135,6 @@ function agregarMotivo(){
                 var query = {
                     q: params.term
                 };
-
-                // Query parameters will be ?1=[term]
                 return query;
             },
             processResults: function (data) {
@@ -1139,22 +1148,19 @@ function agregarMotivo(){
                 };
             }
         }
-
     });
 
     $("#sinPatologia").click(function(){
 
-
         if($(this).prop('checked')){
 
             $(".selectMotivoP").prop('disabled',true);
-
         }else{
 
             $(".selectMotivoP").prop('disabled',false);
         }
     });
-
+/*
     $(".selectMotivoS").select2({
         width: '100%',
         multiple: true,
@@ -1167,8 +1173,6 @@ function agregarMotivo(){
                 var query = {
                     q: params.term
                 };
-
-                // Query parameters will be ?1=[term]
                 return query;
             },
             processResults: function (data) {
@@ -1182,16 +1186,17 @@ function agregarMotivo(){
                 };
             }
         }
-
+    });
+*/
+    $("input[type='number']").click(function () {
+        $(this).select();
     });
 
     $("#modal").modal('show');
-
     $("#cerrar").hide();
     $("#aceptar").hide();
     $("#agregarActividad").hide();
     $("#agregarMotivo").show();
-
 }
 
 //agrega fila de motivos de intervención
@@ -1211,7 +1216,6 @@ function appendRow(selectorP,selectorS){
             id: prestacionesID
         };
 
-
     }else{
 
         motivo = {
@@ -1223,10 +1227,7 @@ function appendRow(selectorP,selectorS){
         };
     }
 
-
-
     for(var index in selectorS.select2('data')){
-
 
         motivo.secundarios.push({
             cie10: selectorS.select2('data')[index].id,
@@ -1266,7 +1267,6 @@ function appendRow(selectorP,selectorS){
             '</td>' +
             '<td><button class="btn btn-danger btn-sm quitarmotivo" data-id="' + DATA.motivos[index].id + '">quitar</button></td>' +
             '</tr>';
-
     }
 
     motivosContainer
@@ -1275,8 +1275,6 @@ function appendRow(selectorP,selectorS){
     //evento de boton quitar de filas de motivos de intervención
     $(".quitarmotivo")
         .click(function(){
-
-            //console.log($(this).data('id'))
 
             for(var index in DATA.motivos){
 
@@ -1288,17 +1286,13 @@ function appendRow(selectorP,selectorS){
                     }
 
                     DATA.motivos.splice(index, 1);
-
                 }
             }
 
             updateMotivosRows();
         });
 
-
     prestacionesID++;
-    console.dir(DATA);
-    //console.log(prestacionesID);
 }
 
 //agrega las filas de motivos según los datos guardados en el json
@@ -1306,10 +1300,7 @@ function updateMotivosRows(){
 
     var motivosContainer = $("#motivos");
 
-    debugger
-
     motivosContainer.empty();
-
 
     var htmlString =
         '<tr>' +
@@ -1346,8 +1337,6 @@ function updateMotivosRows(){
     $(".quitarmotivo")
         .click(function(){
 
-            //console.log($(this).data('id'))
-
             for(var index in DATA.motivos){
 
                 if(DATA.motivos[index].id == $(this).data('id') ){
@@ -1358,7 +1347,6 @@ function updateMotivosRows(){
                     }
 
                     DATA.motivos.splice(index, 1);
-
                 }
             }
 
@@ -1386,7 +1374,6 @@ function sumaDeInputs(selInputs, selTotal){
 
             selTotal.val(acum);
         });
-
 }
 
 //conversión de texto del botón para mostrar la fecha elegida
@@ -1412,7 +1399,6 @@ function showComparacion(message){
         if(message[index] == "cs"){
 
             htmlBody += '<p class="text-danger"> <b>No se ingresó centro de salud</b></p> <hr><br>';
-
         }
 
         //en caso que no coincidan los totales
@@ -1449,7 +1435,6 @@ function showComparacion(message){
         if(message[index] == "motivos"){
 
             htmlBody += '<p class="text-danger"> <b>Los motivos de intervención deben ser mayores o iguales al total</b></p> <hr><br>';
-
         }
     }
 
@@ -1572,9 +1557,6 @@ function saveData(){
 }
 
 function guardarDatos(){
-
-    //$(".pag1").hide();
-    //$(".pag2").show();
 
     alert("Completó los datos correctamente. En ésta etapa de capacitación los datos aún no son guardados.")
 }
