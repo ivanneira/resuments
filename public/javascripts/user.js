@@ -388,10 +388,21 @@ $(function(){
                 }
             }
 
+            var flagAspectoSocial = false;
+            var aspectoSocial = $(".selectMotivoS").select2('data');
 
-            if(typeof($(".selectMotivoS").select2('data')[0]) === 'undefined'){
+            for(var index in aspectoSocial){
+                if(typeof(aspectoSocial[index]) !== 'undefined'){
+
+                    flagAspectoSocial = true;
+                }
+            }
+
+            if(!aspectoSocial){
                 mensajes.push("Debe buscar al menos un aspecto psicosocial");
             }
+
+
 
             if($("#cantidadMotivo").val() < 1){
                 mensajes.push("Debe ingresar una cantidad válida y distinta de cero");
